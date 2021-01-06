@@ -119,7 +119,7 @@ CREATE TABLE `client_order` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `cid` int(32) DEFAULT NULL COMMENT 'CID',
   `oid` int(32) DEFAULT NULL COMMENT 'OID',
-  `type`  tinyint(1) DEFAULT '1',
+  `type` varchar(64) NOT NULL COMMENT '订单类型',
 
   PRIMARY KEY (`id`),
   KEY `oid` (`oid`)
