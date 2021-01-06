@@ -47,7 +47,7 @@ CREATE TABLE `user_role` (
 DROP TABLE IF EXISTS `order_list`;
 CREATE TABLE `order_list` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `gid` int(32) NOT NULL AUTO_INCREMENT comment '商品名称ID',
+  `name` varchar(128) NOT NULL comment '商品名',
   `orderNum` varchar(128) DEFAULT NULL COMMENT '订单编号',
   `price` double(64,0) DEFAULT NULL COMMENT '商品价格',
   `count` int(64) DEFAULT NULL COMMENT '商品数量',
