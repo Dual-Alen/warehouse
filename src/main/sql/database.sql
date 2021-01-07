@@ -6,8 +6,8 @@ CREATE TABLE `user` (
                         `name` varchar(32) DEFAULT NULL COMMENT '姓名',
                         `phone` char(11) DEFAULT NULL COMMENT '手机号码',
                         `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
-                        `role_name` varchar(64) DEFAULT NULL COMMENT '角色名称',
-                        `user_name` varchar(255) DEFAULT NULL COMMENT '用户名',
+                        `roleName` varchar(64) DEFAULT NULL COMMENT '角色名称',
+                        `username` varchar(255) DEFAULT NULL COMMENT '用户名',
                         `password` varchar(255) DEFAULT NULL COMMENT '密码',
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -48,13 +48,13 @@ DROP TABLE IF EXISTS `order_list`;
 CREATE TABLE `order_list` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(128) NOT NULL comment '商品名',
-  `order_num` varchar(128) DEFAULT NULL COMMENT '订单编号',
+  `orderNum` varchar(128) DEFAULT NULL COMMENT '订单编号',
   `price` double(64,0) DEFAULT NULL COMMENT '商品价格',
   `count` int(64) DEFAULT NULL COMMENT '商品数量',
   `pay` tinyint(1) DEFAULT NULL COMMENT '是否支付',
   `date` datetime DEFAULT NULL COMMENT '下单时间',
   `transport` tinyint(1) DEFAULT NULL COMMENT '是否发货',
-  `orde_state` int(32) DEFAULT '1' COMMENT '物流信息',
+  `orderState` int(32) DEFAULT '1' COMMENT '物流信息',
   `sum_price` double(64,0) DEFAULT NULL COMMENT '总金额',
   `note` varchar(128) DEFAULT NULL,
    PRIMARY KEY (`id`)
