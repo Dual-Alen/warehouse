@@ -59,7 +59,7 @@ public class Code {
 
         dsc.setUsername("root");
 
-        dsc.setPassword("123456");
+        dsc.setPassword("root");
 
         dsc.setDbType(DbType.MYSQL);
 
@@ -69,9 +69,9 @@ public class Code {
 
         PackageConfig pc = new PackageConfig();
 
-        pc.setModuleName("serviceedu"); //模块名
+        pc.setModuleName("warehouse"); //模块名
 
-        pc.setParent("com.youmoweidai");
+        pc.setParent("com.nchu");
 
         pc.setController("controller");
 
