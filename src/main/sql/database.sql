@@ -7,7 +7,7 @@ CREATE TABLE `user` (
                         `phone` char(11) DEFAULT NULL COMMENT '手机号码',
                         `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
                         `roleName` varchar(64) DEFAULT NULL COMMENT '角色名称',
-                        `username` varchar(255) DEFAULT NULL COMMENT '用户名',
+                        `userName` varchar(255) DEFAULT NULL COMMENT '用户名',
                         `password` varchar(255) DEFAULT NULL COMMENT '密码',
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -47,6 +47,7 @@ CREATE TABLE `user_role` (
 DROP TABLE IF EXISTS `order_list`;
 CREATE TABLE `order_list` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `num` varchar(32) not null comment '商品编号',
   `name` varchar(128) NOT NULL comment '商品名',
   `orderNum` varchar(128) DEFAULT NULL COMMENT '订单编号',
   `price` double(64,0) DEFAULT NULL COMMENT '商品价格',
@@ -55,7 +56,7 @@ CREATE TABLE `order_list` (
   `date` datetime DEFAULT NULL COMMENT '下单时间',
   `transport` tinyint(1) DEFAULT NULL COMMENT '是否发货',
   `orderState` int(32) DEFAULT '1' COMMENT '物流信息',
-  `sum_price` double(64,0) DEFAULT NULL COMMENT '总金额',
+  `sumPrice` double(64,0) DEFAULT NULL COMMENT '总金额',
   `note` varchar(128) DEFAULT NULL,
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -113,11 +114,12 @@ CREATE TABLE `goods` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `num` varchar(64) DEFAULT NULL COMMENT '商品编号',
   `name` varchar(64) DEFAULT NULL COMMENT '商品名',
-  `spe_model` varchar(64) DEFAULT NULL COMMENT '规格型号',
+  `type` varchar(64) default null comment `商品类型`,
+  `speModel` varchar(64) DEFAULT NULL COMMENT '规格型号',
   `unit` varchar(64) DEFAULT NULL COMMENT '单位',
   `sum` double(64,0) DEFAULT NULL COMMENT '总数',
-  `in_price` double(64,0) DEFAULT NUll COMMENT '入库进价',
-  `out_price` double(64,0) DEFAULT NUll COMMENT '出库售价',
+  `inPrice` double(64,0) DEFAULT NUll COMMENT '入库进价',
+  `outPrice` double(64,0) DEFAULT NUll COMMENT '出库售价',
   `cordon` double(64,0) DEFAULT NULL COMMENT '最低库存',
   `note` varchar(128) DEFAULT NULL COMMENT '备注',
 
@@ -143,7 +145,7 @@ DROP TABLE IF EXISTS `warehouse_goods`;
 CREATE TABLE `warehouse_goods` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `wid` int(32) DEFAULT NULL COMMENT 'WID',
-  `gid` int(32) DEFAULT NULL COMMENT 'GID',
+  `num` varchar(64) DEFAULT NULL COMMENT '商品编号',
   `count` int(32) DEFAULT 0 COMMENT '数量',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
